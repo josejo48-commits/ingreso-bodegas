@@ -526,12 +526,10 @@ function renderList(){
 }
 </script>
 
+
 <script>
 if('serviceWorker' in navigator){
-  const swCode = atob("CnNlbGYuYWRkRXZlbnRMaXN0ZW5lcignaW5zdGFsbCcsIGUgPT4gc2VsZi5za2lwV2FpdGluZygpKTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdhY3RpdmF0ZScsIGUgPT4gY2xpZW50cy5jbGFpbSgpKTsKc2VsZi5hZGRFdmVudExpc3RlbmVyKCdmZXRjaCcsIGUgPT4gZS5yZXNwb25kV2l0aChmZXRjaChlLnJlcXVlc3QpKSk7Cg==");
-  const blob = new Blob([swCode], {type:'application/javascript'});
-  const swUrl = URL.createObjectURL(blob);
-  navigator.serviceWorker.register(swUrl, {scope:'./'}).catch(()=>{});
+  navigator.serviceWorker.register('./sw.js').catch(e => console.log('SW error:', e));
 }
 </script>
 </body>
